@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">FoodCash</string>
+    <string name="foodcashlogo">FoodCashLogo</string>
+    <string name="order_history">Order History</string>
+    <string name="profile">Setting Profile</string>
+    <string name="pembayaran">PEMBAYARAN</string>
+    <string name="hi_u_welcome">Hi, U Welcome !</string>
+    <string name="menu">Kategori Menu</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="back">Back</string>
+    <string name="category">Category</string>
+    <string name="tambah_category">Tambah Category</string>
+    <string name="tambah_menu">Tambah Menu</string>
+</resources>

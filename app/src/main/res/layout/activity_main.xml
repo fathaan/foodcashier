@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundLight"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:paddingBottom="30dp"
+        app:elevation="0dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginEnd="18dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Current Date TextView (Jam dan Tanggal) -->
+                <TextView
+                    android:id="@+id/tvCurrentDateTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/sf"
+                    android:layout_gravity="center"/>
+
+                <!-- Hi, Welcome Text -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/hi_u_welcome"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/sf"
+                    android:layout_gravity="center" />
+
+                <TextView
+                    android:id="@+id/tvUserName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/sf"
+                    android:layout_gravity="center" />
+
+
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Button for Profile -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:layout_marginBottom="38dp"
+                android:layout_marginEnd="14dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnProfile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/BackgroundBlue"
+                    android:text="@string/profile"
+                    android:textColor="@color/blue"
+                    android:textSize="12sp"
+                    android:drawableStart="@drawable/ic_user"
+                    android:drawableTint="@color/blue"
+                    android:fontFamily="@font/sf"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/rounded_button"
+                    android:textAllCaps="false" />
+
+                <!-- Button for Order History -->
+                <Button
+                    android:id="@+id/btnHistory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/BackgroundBlue"
+                    android:text="@string/order_history"
+                    android:textColor="@color/blue"
+                    android:textSize="12sp"
+                    android:drawableStart="@drawable/ic_history"
+                    android:drawableTint="@color/blue"
+                    android:fontFamily="@font/sf"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/rounded_button"
+                    android:textAllCaps="false" />
+
+            </LinearLayout>
+
+            <!-- Button for "Pemasukan Hari Ini" -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:layout_marginEnd="14dp"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnReport"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_button"
+                    android:backgroundTint="@color/BackgroundSea"
+                    android:fontFamily="@font/sf"
+                    android:textColor="@color/Sea"
+                    android:textSize="14sp"
+                    android:layout_margin="10dp"
+                    android:textStyle="bold"
+                    android:text="Laporan Keuangan"
+                    android:textAlignment="viewStart"
+                    android:textAllCaps="false"
+                    android:drawableStart="@drawable/ic_income"
+                    android:drawableEnd="@drawable/ic_arrow_right"
+                    android:drawableTint="@color/Sea"
+                    android:drawablePadding="8dp"
+                    />
+
+            </LinearLayout>
+
+            <!-- Button for Pembayaran -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:layout_marginBottom="28dp"
+                android:layout_marginEnd="14dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnOrder"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_button_darkblue"
+                    android:fontFamily="@font/sf"
+                    android:text="@string/pembayaran"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <!-- Menu Section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:text="@string/menu"
+                android:layout_gravity="center"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/sf" />
+
+            <!-- Category & Menu Buttons -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:layout_marginEnd="14dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnCategory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/BackgroundBlue"
+                    android:text="Category"
+                    android:textColor="@color/blue"
+                    android:textSize="12sp"
+                    android:drawableStart="@drawable/ic_category"
+                    android:drawableTint="@color/blue"
+                    android:fontFamily="@font/sf"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/rounded_button"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/btnMenu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_button"
+                    android:backgroundTint="@color/BackgroundBlue"
+                    android:drawableStart="@drawable/ic_menu"
+                    android:drawableTint="@color/blue"
+                    android:fontFamily="@font/sf"
+                    android:text="Menu"
+                    android:textColor="@color/blue"
+                    android:textSize="12sp"
+                    android:textAllCaps="false" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

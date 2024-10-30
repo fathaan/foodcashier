@@ -1,0 +1,77 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/backgroundLight"
+    android:paddingStart="20dp"
+    android:paddingEnd="20dp"
+    android:paddingTop="50dp"
+    android:paddingBottom="20dp">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/historyTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Registrasi"
+        android:fontFamily="@font/sf"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:padding="20dp"
+        android:textColor="@color/black"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"/>
+
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="150dp"
+        android:src="@drawable/vectorfoodcashier"
+        android:layout_gravity="center"/>
+
+    <EditText
+        android:id="@+id/etName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Masukan Nama Toko"
+        android:background="@drawable/rounded_form"
+        android:textColor="@color/blue"
+        android:layout_marginBottom="10dp"/>
+
+    <EditText
+        android:id="@+id/etUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Masukan Username"
+        android:background="@drawable/rounded_form"
+        android:textColor="@color/blue"
+        android:layout_marginBottom="10dp"/>
+
+    <EditText
+        android:id="@+id/etEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Masukan Email"
+        android:background="@drawable/rounded_form"
+        android:textColor="@color/blue"
+        android:layout_marginBottom="10dp"/>
+
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Masukan Password"
+        android:inputType="textPassword"
+        android:background="@drawable/rounded_form"
+        android:textColor="@color/blue"
+        android:layout_marginBottom="10dp"/>
+
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Registrasi"
+        android:textColor="@color/blue"
+        android:layout_gravity="center"
+        android:background="@drawable/rounded_button"/>
+</LinearLayout>

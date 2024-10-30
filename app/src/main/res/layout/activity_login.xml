@@ -1,0 +1,101 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/backgroundLight"
+    android:paddingStart="20dp"
+    android:paddingEnd="20dp"
+    android:paddingTop="50dp"
+    android:paddingBottom="20dp">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/historyTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:fontFamily="@font/sf"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:padding="20dp"
+        android:textColor="@color/black"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        tools:ignore="HardcodedText" />
+
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="150dp"
+        android:src="@drawable/vectorfoodcashier"
+        android:layout_gravity="center"/>
+
+    <EditText
+        android:id="@+id/etUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Masukan Username"
+        android:background="@drawable/rounded_form"
+        android:textColor="@color/blue"
+        android:layout_marginBottom="10dp"
+        tools:ignore="HardcodedText" />
+
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Masukan Password"
+        android:inputType="textPassword"
+        android:background="@drawable/rounded_form"
+        android:textColor="@color/blue"
+        android:layout_marginBottom="10dp"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:textColor="@color/blue"
+        android:layout_gravity="center"
+        android:background="@drawable/rounded_button"
+        tools:ignore="HardcodedText" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnForgotPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Lupa Password ?"
+            android:textAllCaps="false"
+            android:layout_gravity="center"
+            android:textColor="@color/blue"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/rounded_button"
+            tools:ignore="HardcodedText,SmallSp" />
+
+        <Button
+            android:id="@+id/btnRegistrasi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Create Account ?"
+            android:textAllCaps="false"
+            android:layout_gravity="center"
+            android:textColor="@color/blue"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/rounded_button"
+            tools:ignore="HardcodedText,SmallSp"/>
+    </LinearLayout>
+</LinearLayout>

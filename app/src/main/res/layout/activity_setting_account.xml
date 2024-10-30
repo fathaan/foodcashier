@@ -1,0 +1,75 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/backgroundLight"
+    android:paddingTop="50dp"
+    android:paddingBottom="20dp"
+    android:paddingStart="20dp"
+    android:paddingEnd="20dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Setting Account"
+        android:textStyle="bold"
+        android:textColor="@color/blue"
+        android:textSize="20sp"
+        android:gravity="center"/>
+
+    <Button
+        android:id="@+id/btnEditName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Edit Nama"
+        android:textColor="@color/blue"
+        android:drawableTint="@color/blue"
+        android:textAlignment="viewStart"
+        android:textAllCaps="false"
+        android:drawableEnd="@drawable/ic_arrow_right"
+        android:drawablePadding="8dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_button"/>
+
+    <Button
+        android:id="@+id/btnEditUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Edit Username"
+        android:textColor="@color/blue"
+        android:drawableTint="@color/blue"
+        android:textAlignment="viewStart"
+        android:textAllCaps="false"
+        android:drawableEnd="@drawable/ic_arrow_right"
+        android:drawablePadding="8dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_button"/>
+
+    <Button
+        android:id="@+id/btnEditEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Edit Email"
+        android:textColor="@color/blue"
+        android:drawableTint="@color/blue"
+        android:textAlignment="viewStart"
+        android:textAllCaps="false"
+        android:drawableEnd="@drawable/ic_arrow_right"
+        android:drawablePadding="8dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_button"/>
+
+    <Button
+        android:id="@+id/btnEditPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Edit Password"
+        android:textColor="@color/blue"
+        android:drawableTint="@color/blue"
+        android:textAlignment="viewStart"
+        android:textAllCaps="false"
+        android:drawableEnd="@drawable/ic_arrow_right"
+        android:drawablePadding="8dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_button"/>
+</LinearLayout>

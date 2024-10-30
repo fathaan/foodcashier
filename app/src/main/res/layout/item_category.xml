@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="10dp"
+    android:layout_marginBottom="15dp"
+    android:gravity="center_vertical"
+    android:background="@drawable/rounded_button">
+
+    <!-- Nama kategori -->
+    <TextView
+        android:id="@+id/categoryTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="16sp"
+        android:textColor="@color/blue" />
+
+    <!-- Tombol panah untuk popup dialog -->
+    <ImageButton
+        android:id="@+id/btnActionCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_more_horiz"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        app:tint="@color/blue" />
+
+</LinearLayout>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#01123d</color>
+    <color name="white">#f9ffff</color>
+
+    <color name="backgroundLight">#e5fcfe</color>
+    <color name="backgroundNight">#2F3334</color>
+    <color name="primary">#32c6e9</color>
+
+    <color name="blue">#005493</color>
+    <color name="BackgroundBlue">#B5DBFF</color>
+
+    <color name="green">#2C7319</color>
+    <color name="BackgroundGreen">#C1FFB4</color>
+
+    <color name="yellow">#8D9400</color>
+    <color name="backgroundYellow">#FFFDC5</color>
+
+    <color name="red">#930000</color>
+    <color name="BackgroundRed">#FFB5B5</color>
+
+    <color name="Sea">#008C82</color>
+    <color name="BackgroundSea">#C9FFFA</color>
+
+    <color name="gray">#5a5a5a</color>
+
+
+</resources>

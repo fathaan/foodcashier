@@ -1,0 +1,68 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
+
+android {
+    namespace 'com.foodcash'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.foodcash"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+    // Dependensi Firebase
+    implementation platform(libs.firebase.bom) // Menggunakan BOM untuk versi yang sesuai
+    implementation libs.firebase.auth // Firebase Authentication
+    implementation libs.firebase.firestore // Firestore
+    implementation libs.firebase.storage // Storage
+
+    // Dependensi dasar untuk aplikasi Android
+    implementation libs.appcompat.v170
+    implementation libs.constraintlayout
+    implementation libs.activity
+    implementation libs.material
+    implementation libs.cardview
+
+
+    // Splash API
+    implementation libs.core.splashscreen
+
+    // Dependensi untuk Fragment dan Navigasi
+    implementation libs.fragment // Fragment library
+    implementation libs.navigation.fragment // Navigasi Fragment
+    implementation libs.navigation.ui // UI untuk Navigasi
+
+    // Dependensi untuk RecyclerView
+    implementation libs.recyclerview // Untuk menampilkan daftar item
+
+    // Dependensi untuk Room Database (SQLite)
+    implementation libs.room.runtime
+    implementation libs.firebase.database// Room runtime
+    annotationProcessor libs.room.compiler // Annotation processor
+
+    // Dependensi untuk Pencetakan melalui Bluetooth (opsional)
+    // Library untuk pencetakan Bluetooth
+
+    // Dependensi untuk Unit Testing
+    testImplementation libs.junit // JUnit untuk pengujian unit
+    androidTestImplementation libs.junit.v121 // JUnit ekstensi untuk pengujian Android
+    androidTestImplementation libs.espresso.core.v361 // Espresso untuk UI testing
+}

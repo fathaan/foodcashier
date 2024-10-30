@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "944526193393",
+    "project_id": "foodcashier-ee8e3",
+    "storage_bucket": "foodcashier-ee8e3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:944526193393:android:85e86da2ac1e5df3bb2f50",
+        "android_client_info": {
+          "package_name": "com.foodcash"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABTb9KKPcnF36LpDZy4KjbWp9gcUEFd9I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
