@@ -1,14 +1,13 @@
 {
   "project_info": {
-    "project_number": "503168393079",
-    "firebase_url": "https://foodcash-app-7f9b4-default-rtdb.firebaseio.com",
-    "project_id": "foodcash-app-7f9b4",
-    "storage_bucket": "foodcash-app-7f9b4.firebasestorage.app"
+    "project_number": "944526193393",
+    "project_id": "foodcashier-ee8e3",
+    "storage_bucket": "foodcashier-ee8e3.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:503168393079:android:edfa232cdeb2b6c05c0b72",
+        "mobilesdk_app_id": "1:944526193393:android:85e86da2ac1e5df3bb2f50",
         "android_client_info": {
           "package_name": "com.foodcash"
         }
@@ -16,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBgW_n5NjMTkli5QamVVucfSlSaadKrXDY"
+          "current_key": "AIzaSyABTb9KKPcnF36LpDZy4KjbWp9gcUEFd9I"
         }
       ],
       "services": {

@@ -4,7 +4,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class FirebaseHelper {
-    private static final String FIREBASE_URL = "https://foodcashier-ee8e3-default-rtdb.firebaseio.com/";
+    private static final String FIREBASE_URL = "https://foodcash-app-7f9b4-default-rtdb.firebaseio.com/";
 
     public static DatabaseReference getUsersReference() {
         return FirebaseDatabase.getInstance(FIREBASE_URL).getReference("users");

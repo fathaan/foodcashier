@@ -40,9 +40,6 @@ dependencies {
     implementation libs.activity
     implementation libs.material
     implementation libs.cardview
-
-
-    // Splash API
     implementation libs.core.splashscreen
 
     // Dependensi untuk Fragment dan Navigasi

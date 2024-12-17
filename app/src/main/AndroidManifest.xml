@@ -19,16 +19,16 @@
         android:theme="@style/Theme.FoodCash"
         tools:targetApi="31">
         <activity
-            android:name=".OrderReceiptActivity"
+            android:name=".activity.OrderReceiptActivity"
             android:exported="false" />
         <activity
-            android:name=".OrderDetailActivity"
+            android:name=".activity.OrderDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".SettingAccountActivity"
+            android:name=".activity.SettingAccountActivity"
             android:exported="false" />
         <activity
-            android:name=".ReportIncomeActivity"
+            android:name=".activity.ReportIncomeActivity"
             android:exported="false" /> <!-- Firebase metadata untuk notifikasi (optional) -->
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
@@ -37,31 +37,31 @@
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/backgroundLight" /> <!-- Aktivitas di aplikasi -->
         <activity
-            android:name=".ForgotPasswordActivity"
+            android:name=".activity.ForgotPasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".activity.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".RegistrasiActivity"
+            android:name=".activity.RegistrasiActivity"
             android:exported="false" />
         <activity
-            android:name=".CategoryActivity"
+            android:name=".activity.CategoryActivity"
             android:exported="false" />
         <activity
-            android:name=".MenuActivity"
+            android:name=".activity.MenuActivity"
             android:exported="false" />
         <activity
-            android:name=".OrderActivity"
+            android:name=".activity.OrderActivity"
             android:exported="false" />
         <activity
-            android:name=".HistoryActivity"
+            android:name=".activity.HistoryActivity"
             android:exported="false" />
         <activity
-            android:name=".ProfileActivity"
+            android:name=".models.ProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".SplashActivity"
+            android:name=".activity.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -70,7 +70,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:exported="true" />
     </application>
 
