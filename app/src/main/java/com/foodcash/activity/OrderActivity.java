@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -53,26 +54,57 @@ public class OrderActivity extends AppCompatActivity implements CartListener {
         String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
         databaseReference = FirebaseDatabase.getInstance().getReference("users").child(userId);
 
+        // Disable the "Lanjut" button initially
+        btnDetailOrder.setEnabled(false);
+
         loadCategoriesAndMenus();
 
         findViewById(R.id.btnBack).setOnClickListener(view -> finish());
         btnDetailOrder.setOnClickListener(v -> {
-            Intent intent = new Intent(OrderActivity.this, OrderDetailActivity.class);
+            if (totalAmount == 0) {
+                // Show toast if no items are selected
+                Toast.makeText(OrderActivity.this, "Pilih menu terlebih dahulu!!", Toast.LENGTH_SHORT).show();
+            } else {
+                // Continue to OrderDetailActivity
+                Intent intent = new Intent(OrderActivity.this, OrderDetailActivity.class);
 
-            ArrayList<OrderDetail.Item> selectedItems = new ArrayList<>();
-            for (OrderCategory category : categoryList) {
-                for (OrderMenu menu : category.getMenuList()) {
-                    if (menu.getQuantity() > 0) {
-                        selectedItems.add(new OrderDetail.Item(menu.getMenuId(), menu.getMenuName(), menu.getMenuPrice(), menu.getQuantity()));
+                ArrayList<OrderDetail.Item> selectedItems = new ArrayList<>();
+                for (OrderCategory category : categoryList) {
+                    for (OrderMenu menu : category.getMenuList()) {
+                        if (menu.getQuantity() > 0) {
+                            selectedItems.add(new OrderDetail.Item(menu.getMenuId(), menu.getMenuName(), menu.getMenuPrice(), menu.getQuantity()));
+                        }
                     }
                 }
-            }
 
-            intent.putParcelableArrayListExtra("selectedItems", selectedItems);
-            intent.putExtra("totalAmount", totalAmount);
-            startActivity(intent);
+                intent.putParcelableArrayListExtra("selectedItems", selectedItems);
+                intent.putExtra("totalAmount", totalAmount);
+                startActivity(intent);
+            }
         });
     }
+
+    @Override
+    public void onCartUpdated() {
+        totalAmount = 0;
+        boolean hasSelectedItems = false; // Track if any menu is selected
+
+        for (OrderCategory category : categoryList) {
+            for (OrderMenu menu : category.getMenuList()) {
+                if (menu.getQuantity() > 0) {
+                    hasSelectedItems = true; // Found at least one selected item
+                }
+                totalAmount += menu.getQuantity() * menu.getMenuPrice();
+            }
+        }
+
+        // Update cart total text
+        cartTotal.setText(formatToRupiah(totalAmount));
+
+        // Enable or disable the "Lanjut" button based on selection
+        btnDetailOrder.setEnabled(hasSelectedItems);
+    }
+
 
     private void loadCategoriesAndMenus() {
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -113,17 +145,6 @@ public class OrderActivity extends AppCompatActivity implements CartListener {
                 Log.e("OrderActivity", "Database error: " + error.getMessage());
             }
         });
-    }
-
-    @Override
-    public void onCartUpdated() {
-        totalAmount = 0;
-        for (OrderCategory category : categoryList) {
-            for (OrderMenu menu : category.getMenuList()) {
-                totalAmount += menu.getQuantity() * menu.getMenuPrice();
-            }
-        }
-        cartTotal.setText(formatToRupiah(totalAmount));
     }
 
     private String formatToRupiah(int amount) {

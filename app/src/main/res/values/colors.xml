@@ -13,11 +13,13 @@
     <color name="green">#2C7319</color>
     <color name="BackgroundGreen">#C1FFB4</color>
 
-    <color name="yellow">#8D9400</color>
+    <color name="yellow">#A3AB00</color>
     <color name="backgroundYellow">#FFFDC5</color>
+    <color name="warning">#FFEB3B</color>
 
     <color name="red">#930000</color>
     <color name="BackgroundRed">#FFB5B5</color>
+    <color name="danger">#FF3B3B</color>
 
     <color name="Sea">#008C82</color>
     <color name="BackgroundSea">#C9FFFA</color>

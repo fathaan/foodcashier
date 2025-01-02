@@ -11,58 +11,71 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
-        android:paddingBottom="30dp"
         app:elevation="0dp">
-
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
-            android:layout_marginEnd="18dp"
-            android:orientation="horizontal">
-
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="14dp">
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="18dp"
+                android:src="@drawable/logo"
+                android:contentDescription="Logo Food Cash" />
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <!-- Current Date TextView (Jam dan Tanggal) -->
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingStart="16dp">
                 <TextView
-                    android:id="@+id/tvCurrentDateTime"
+                    android:id="@+id/tvNameToko"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:textSize="12sp"
-                    android:layout_marginBottom="10dp"
+                    android:text="Selamat Datang, \ndi FoodCash App!"
                     android:fontFamily="@font/sf"
-                    android:layout_gravity="center"/>
-
-                <!-- Hi, Welcome Text -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="@string/hi_u_welcome"
-                    android:textColor="@color/black"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/sf"
-                    android:layout_gravity="center" />
-
+                    android:textSize="18sp"
+                    android:textColor="@color/blue"
+                    android:textStyle="bold" />
                 <TextView
                     android:id="@+id/tvUserName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
+                    android:text="usernamekasir"
+                    android:textColor="#6D6D6D"
                     android:fontFamily="@font/sf"
-                    android:layout_gravity="center" />
-
-
-
+                    android:textSize="12sp"
+                    android:layout_marginTop="4dp" />
+                <TextView
+                    android:id="@+id/tvCurrentDateTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="00.00 WIB \nHari, 00 Bulan 0000"
+                    android:textColor="#6D6D6D"
+                    android:fontFamily="@font/sf"
+                    android:textSize="10sp"
+                    android:layout_marginTop="8dp" />
             </LinearLayout>
 
-        </RelativeLayout>
+            <!-- Tambahkan Button Profile di Sini -->
+            <Button
+                android:id="@+id/btnProfile"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="18dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/rounded_button_darkblue"
+                android:clickable="true"
+                android:contentDescription="Profile Button"
+                android:focusable="true"
+                android:padding="8dp"
+                android:text="Profile"
+                android:drawableLeft="@drawable/ic_user" />
+
+        </LinearLayout>
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -71,86 +84,100 @@
         android:layout_height="match_parent"
         android:layout_marginTop="10dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
-            <!-- Button for Profile -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="14dp"
                 android:layout_marginStart="14dp"
-                android:layout_marginBottom="38dp"
+                android:layout_marginBottom="14dp"
                 android:layout_marginEnd="14dp"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/btnProfile"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:backgroundTint="@color/BackgroundBlue"
-                    android:text="@string/profile"
-                    android:textColor="@color/blue"
-                    android:textSize="12sp"
-                    android:drawableStart="@drawable/ic_user"
-                    android:drawableTint="@color/blue"
-                    android:fontFamily="@font/sf"
-                    android:layout_margin="10dp"
-                    android:background="@drawable/rounded_button"
-                    android:textAllCaps="false" />
-
-                <!-- Button for Order History -->
-                <Button
-                    android:id="@+id/btnHistory"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:backgroundTint="@color/BackgroundBlue"
-                    android:text="@string/order_history"
-                    android:textColor="@color/blue"
-                    android:textSize="12sp"
-                    android:drawableStart="@drawable/ic_history"
-                    android:drawableTint="@color/blue"
-                    android:fontFamily="@font/sf"
-                    android:layout_margin="10dp"
-                    android:background="@drawable/rounded_button"
-                    android:textAllCaps="false" />
-
-            </LinearLayout>
-
-            <!-- Button for "Pemasukan Hari Ini" -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="14dp"
-                android:layout_marginEnd="14dp"
+                android:elevation="4dp"
                 android:layout_gravity="center"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/btnReport"
-                    android:layout_width="0dp"
+                android:backgroundTint="#EAF9FF"
+                android:background="@drawable/rounded_button">
+                <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@drawable/rounded_button"
-                    android:backgroundTint="@color/BackgroundSea"
+                    android:text="Transaksi Hari Ini"
+                    android:textColor="@color/blue"
                     android:fontFamily="@font/sf"
-                    android:textColor="@color/Sea"
-                    android:textSize="14sp"
-                    android:layout_margin="10dp"
+                    android:textSize="18sp"
                     android:textStyle="bold"
-                    android:text="Laporan Keuangan"
-                    android:textAlignment="viewStart"
-                    android:textAllCaps="false"
-                    android:drawableStart="@drawable/ic_income"
-                    android:drawableEnd="@drawable/ic_arrow_right"
-                    android:drawableTint="@color/Sea"
-                    android:drawablePadding="8dp"
-                    />
+                    android:gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="16dp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:weightSum="2">
 
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/rounded_button"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/sf"
+                            android:gravity="center"
+                            android:text="Total Pemasukan"
+                            android:textColor="@color/blue"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/tvTotalTransaction"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:text="Rp0"
+                            android:textColor="@color/blue"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_margin="8dp"
+                        android:background="@drawable/rounded_button"
+                        android:padding="16dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Total Transaksi"
+                            android:textColor="@color/blue"
+                            android:fontFamily="@font/sf"
+                            android:textSize="12sp"
+                            android:gravity="center" />
+                        <TextView
+                            android:id="@+id/tvTotalProduction"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0 Transaksi"
+                            android:textSize="16sp"
+                            android:textColor="@color/blue"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:layout_marginTop="8dp" />
+                    </LinearLayout>
+                </LinearLayout>
             </LinearLayout>
 
             <!-- Button for Pembayaran -->
@@ -158,10 +185,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="14dp"
-                android:layout_marginBottom="28dp"
                 android:layout_marginEnd="14dp"
                 android:orientation="horizontal">
-
                 <Button
                     android:id="@+id/btnOrder"
                     android:layout_width="0dp"
@@ -170,24 +195,35 @@
                     android:layout_weight="1"
                     android:background="@drawable/rounded_button_darkblue"
                     android:fontFamily="@font/sf"
-                    android:text="@string/pembayaran"
+                    android:text="TAMBAH TRANSAKSI"
                     android:textStyle="bold"
                     android:textColor="@color/white"
-                    android:textSize="14sp" />
-
+                    android:textSize="14sp"
+                    android:drawableStart="@drawable/ic_pesanan"
+                    android:drawableEnd="@drawable/ic_arrow_right" />
             </LinearLayout>
-
-            <!-- Menu Section -->
-            <TextView
-                android:layout_width="wrap_content"
+            <!-- Button for Pembayaran -->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="35dp"
-                android:text="@string/menu"
-                android:layout_gravity="center"
-                android:textColor="@android:color/black"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:fontFamily="@font/sf" />
+                android:layout_marginStart="14dp"
+                android:layout_marginEnd="14dp"
+                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/btnHistory"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_button_darkblue"
+                    android:fontFamily="@font/sf"
+                    android:text="RIWAYAT TRANSAKSI"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:drawableStart="@drawable/ic_history"
+                    android:drawableEnd="@drawable/ic_arrow_right" />
+            </LinearLayout>
 
             <!-- Category & Menu Buttons -->
             <LinearLayout
@@ -196,14 +232,13 @@
                 android:layout_marginStart="14dp"
                 android:layout_marginEnd="14dp"
                 android:orientation="horizontal">
-
                 <Button
                     android:id="@+id/btnCategory"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:backgroundTint="@color/BackgroundBlue"
-                    android:text="Category"
+                    android:text="Kategori"
                     android:textColor="@color/blue"
                     android:textSize="12sp"
                     android:drawableStart="@drawable/ic_category"
@@ -212,10 +247,9 @@
                     android:layout_margin="10dp"
                     android:background="@drawable/rounded_button"
                     android:textAllCaps="false" />
-
                 <Button
                     android:id="@+id/btnMenu"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
@@ -228,11 +262,57 @@
                     android:textColor="@color/blue"
                     android:textSize="12sp"
                     android:textAllCaps="false" />
-
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:layout_marginEnd="14dp"
+                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/btnGrafik"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/BackgroundBlue"
+                    android:text="Grafik Penjualan"
+                    android:textColor="@color/blue"
+                    android:textSize="12sp"
+                    android:drawableStart="@drawable/ic_grafik"
+                    android:drawableTint="@color/blue"
+                    android:fontFamily="@font/sf"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/rounded_button"
+                    android:textAllCaps="false" />
+                <Button
+                    android:id="@+id/btnReport"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/rounded_button"
+                    android:backgroundTint="@color/BackgroundBlue"
+                    android:drawableStart="@drawable/ic_income"
+                    android:drawableTint="@color/blue"
+                    android:fontFamily="@font/sf"
+                    android:text="Lap. Keuangan"
+                    android:textColor="@color/blue"
+                    android:textSize="12sp"
+                    android:textAllCaps="false" />
+            </LinearLayout>
         </LinearLayout>
-
     </androidx.core.widget.NestedScrollView>
+    <TextView
+        android:id="@+id/tvCreatedBy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left|bottom"
+        android:layout_marginBottom="5dp"
+        android:layout_marginStart="15dp"
+        android:text="Created by FAGL Team \nProject Mandiri at Politeknik Negeri Lampung"
+        android:textColor="#6D6D6D"
+        android:fontFamily="@font/sf"
+        android:textSize="8sp" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

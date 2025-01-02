@@ -1,2 +1,25 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <style name="CustomDatePickerTheme" parent="Theme.MaterialComponents.Light.Dialog">
+        <!-- Warna utama -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorAccent">@color/black</item>
+        <item name="android:textColorPrimary">@color/blue</item>
+        <item name="android:background">@color/BackgroundBlue</item>
+    </style>
+
+    <style name="CustomEditText" parent="Widget.AppCompat.EditText">
+        <!-- Background dengan rounded_form -->
+        <item name="android:background">@drawable/rounded_button</item>
+        <!-- Text color -->
+        <item name="android:textColor">@color/blue</item>
+        <!-- Padding internal -->
+        <item name="android:padding">12dp</item>
+        <!-- Hint text color -->
+        <item name="android:textColorHint">@color/gray</item>
+        <!-- Font size -->
+        <item name="android:textSize">16sp</item>
+        <!-- Optional: Font family -->
+        <item name="android:fontFamily">@font/sf</item>
+    </style>
+
+</resources>

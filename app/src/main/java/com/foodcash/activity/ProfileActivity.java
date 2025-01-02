@@ -1,4 +1,4 @@
-package com.foodcash.models;
+package com.foodcash.activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,9 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import com.foodcash.FirebaseHelper;
-import com.foodcash.activity.LoginActivity;
 import com.foodcash.R;
-import com.foodcash.activity.SettingAccountActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -42,6 +40,9 @@ public class ProfileActivity extends AppCompatActivity {
         ImageView btnBack = findViewById(R.id.btnBack);
         Button btnSettingAccount = findViewById(R.id.btnSettingAccount);
         Button btnLogout = findViewById(R.id.btnLogout);
+        Button btnHistory = findViewById(R.id.btnHistory); // Tambahkan tombol History
+        Button btnReport = findViewById(R.id.btnReport);   // Tambahkan tombol Report
+        Button btnGrafik = findViewById(R.id.btnGrafik);   // Tambahkan tombol Grafik
 
         // Inisialisasi FirebaseAuth dan DatabaseReference
         mAuth = FirebaseAuth.getInstance();
@@ -55,10 +56,29 @@ public class ProfileActivity extends AppCompatActivity {
 
         // Set background untuk card view atau layout lainnya
         CardView profileCard = findViewById(R.id.profileCard);
-        profileCard.setBackgroundResource(R.drawable.rounded_button_sea);
+        profileCard.setBackgroundResource(R.drawable.rounded_button);
 
+        // Navigasi ke SettingAccountActivity
         btnSettingAccount.setOnClickListener(v -> {
             Intent intent = new Intent(ProfileActivity.this, SettingAccountActivity.class);
+            startActivity(intent);
+        });
+
+        // Navigasi ke HistoryActivity
+        btnHistory.setOnClickListener(v -> {
+            Intent intent = new Intent(ProfileActivity.this, HistoryActivity.class);
+            startActivity(intent);
+        });
+
+        // Navigasi ke ReportIncomeActivity
+        btnReport.setOnClickListener(v -> {
+            Intent intent = new Intent(ProfileActivity.this, ReportIncomeActivity.class);
+            startActivity(intent);
+        });
+
+        // Navigasi ke GrafikActivity
+        btnGrafik.setOnClickListener(v -> {
+            Intent intent = new Intent(ProfileActivity.this, GrafikActivity.class);
             startActivity(intent);
         });
 
@@ -78,7 +98,6 @@ public class ProfileActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         });
-
     }
 
     // Method untuk mengisi konten profil

@@ -1,9 +1,11 @@
 package com.foodcash.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,65 +14,61 @@ import com.foodcash.R;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class ForgotPasswordActivity extends AppCompatActivity {
-    private EditText etEmailPhone, etInputOtp;
-    private Button btnSendOtp, btnNextResetPassword;
+
+    private EditText etEmail;
+    private Button btnResetPassword;
+    private ImageButton btnBack;
     private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgot_password);
+        getSupportActionBar().hide();
 
-        etEmailPhone = findViewById(R.id.etEmailPhone);
-        etInputOtp = findViewById(R.id.etInputOtp);
-        btnSendOtp = findViewById(R.id.btnSendOtp);
-        btnNextResetPassword = findViewById(R.id.btnNextResetPassword);
-
+        // Initialize FirebaseAuth
         mAuth = FirebaseAuth.getInstance();
 
-        // Menyembunyikan input OTP dan tombol reset password awalnya
-        etInputOtp.setVisibility(View.GONE);
-        btnNextResetPassword.setVisibility(View.GONE);
+        // Bind views
+        etEmail = findViewById(R.id.etEmail);
+        btnResetPassword = findViewById(R.id.btnResetPassword);
+        btnBack = findViewById(R.id.btnBack);
 
-        btnSendOtp.setOnClickListener(v -> {
-            String emailOrPhone = etEmailPhone.getText().toString();
+        // Handle back button
+        btnBack.setOnClickListener(v -> finish());
 
-            // Mengirim OTP ke email untuk reset password
-            mAuth.sendPasswordResetEmail(emailOrPhone)
-                    .addOnCompleteListener(task -> {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(ForgotPasswordActivity.this, "Email OTP terkirim", Toast.LENGTH_SHORT).show();
-                            // Menampilkan input OTP dan tombol reset password setelah mengirim email
-                            etInputOtp.setVisibility(View.VISIBLE);
-                            btnNextResetPassword.setVisibility(View.VISIBLE);
-                        } else {
-                            Toast.makeText(ForgotPasswordActivity.this, "Gagal: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    });
-        });
+        // Handle reset password button
+        btnResetPassword.setOnClickListener(v -> {
+            String email = etEmail.getText().toString().trim();
 
-        btnNextResetPassword.setOnClickListener(v -> {
-            String newPassword = etInputOtp.getText().toString();
-            // Ganti password di sini
-            resetPassword(newPassword);
+            if (TextUtils.isEmpty(email)) {
+                Toast.makeText(ForgotPasswordActivity.this, "Email tidak boleh kosong!", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            resetPassword(email);
         });
     }
 
-    private void resetPassword(String newPassword) {
-        // Di sini kamu tidak bisa memverifikasi OTP karena Firebase hanya mengirimkan link untuk reset password
-        // Namun kita bisa langsung mengganti password
-        if (!newPassword.isEmpty()) {
-            FirebaseAuth.getInstance().getCurrentUser().updatePassword(newPassword)
-                    .addOnCompleteListener(task -> {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(ForgotPasswordActivity.this, "Password berhasil diubah", Toast.LENGTH_SHORT).show();
-                            finish(); // Menutup ForgotPasswordActivity
+    private void resetPassword(String email) {
+        mAuth.sendPasswordResetEmail(email)
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        Toast.makeText(ForgotPasswordActivity.this, "Link reset password telah dikirim ke email Anda!", Toast.LENGTH_SHORT).show();
+                        // Navigate to LoginActivity
+                        Intent intent = new Intent(ForgotPasswordActivity.this, LoginActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        String errorMessage;
+                        if (task.getException() != null) {
+                            errorMessage = task.getException().getMessage();
                         } else {
-                            Toast.makeText(ForgotPasswordActivity.this, "Gagal mengubah password: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            errorMessage = "Gagal mengirim email reset password!";
                         }
-                    });
-        } else {
-            Toast.makeText(ForgotPasswordActivity.this, "Password tidak boleh kosong", Toast.LENGTH_SHORT).show();
-        }
+                        Toast.makeText(ForgotPasswordActivity.this, "Error: " + errorMessage, Toast.LENGTH_LONG).show();
+                    }
+                });
     }
 }

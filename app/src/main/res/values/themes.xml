@@ -4,13 +4,13 @@
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/backgroundLight</item>
         <item name="colorPrimaryDark">@color/backgroundLight</item>
-        <item name="colorAccent">@color/backgroundLight</item>
+        <item name="colorAccent">@color/black</item>
     </style>
 
     <style name="Theme.FoodCash" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/backgroundLight</item>
         <item name="colorPrimaryDark">@color/backgroundLight</item>
-        <item name="colorAccent">@color/backgroundLight</item>
+        <item name="colorAccent">@color/black</item>
     </style>
 </resources>

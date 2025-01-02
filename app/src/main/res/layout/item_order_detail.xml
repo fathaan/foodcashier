@@ -3,9 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="8dp"
+    android:paddingStart="18dp"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp"
+    android:paddingEnd="18dp"
     android:layout_marginBottom="10dp"
-    android:background="@drawable/rounded_form">
+    android:backgroundTint="@color/white"
+    android:background="@drawable/rounded_button">
 
     <!-- Bagian Kiri: Menu Name dan Menu Price (Vertikal) -->
     <LinearLayout

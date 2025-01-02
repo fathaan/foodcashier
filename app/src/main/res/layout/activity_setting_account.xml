@@ -21,55 +21,75 @@
         android:id="@+id/btnEditName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Edit Nama"
         android:textColor="@color/blue"
         android:drawableTint="@color/blue"
         android:textAlignment="viewStart"
         android:textAllCaps="false"
-        android:drawableEnd="@drawable/ic_arrow_right"
+        android:drawableEnd="@drawable/ic_edit"
         android:drawablePadding="8dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/rounded_button"/>
+        android:textCursorDrawable="@color/blue"
+        android:backgroundTint="@color/white"
+        style="@style/CustomEditText"/>
 
     <Button
         android:id="@+id/btnEditUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Edit Username"
         android:textColor="@color/blue"
         android:drawableTint="@color/blue"
         android:textAlignment="viewStart"
         android:textAllCaps="false"
-        android:drawableEnd="@drawable/ic_arrow_right"
+        android:drawableEnd="@drawable/ic_edit"
         android:drawablePadding="8dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/rounded_button"/>
+        android:textCursorDrawable="@color/blue"
+        android:backgroundTint="@color/white"
+        style="@style/CustomEditText"/>
 
     <Button
         android:id="@+id/btnEditEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Edit Email"
         android:textColor="@color/blue"
         android:drawableTint="@color/blue"
         android:textAlignment="viewStart"
         android:textAllCaps="false"
-        android:drawableEnd="@drawable/ic_arrow_right"
+        android:drawableEnd="@drawable/ic_edit"
         android:drawablePadding="8dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/rounded_button"/>
+        android:textCursorDrawable="@color/blue"
+        android:backgroundTint="@color/white"
+        style="@style/CustomEditText"
+        android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/btnEditNohp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/blue"
+        android:drawableTint="@color/blue"
+        android:textAlignment="viewStart"
+        android:textAllCaps="false"
+        android:drawableEnd="@drawable/ic_edit"
+        android:drawablePadding="8dp"
+        android:layout_marginTop="20dp"
+        android:textCursorDrawable="@color/blue"
+        android:backgroundTint="@color/white"
+        style="@style/CustomEditText"/>
 
     <Button
         android:id="@+id/btnEditPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Edit Password"
         android:textColor="@color/blue"
         android:drawableTint="@color/blue"
         android:textAlignment="viewStart"
         android:textAllCaps="false"
-        android:drawableEnd="@drawable/ic_arrow_right"
+        android:drawableEnd="@drawable/ic_edit"
         android:drawablePadding="8dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/rounded_button"/>
+        android:textCursorDrawable="@color/blue"
+        android:backgroundTint="@color/white"
+        style="@style/CustomEditText"/>
 </LinearLayout>

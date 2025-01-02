@@ -1,8 +1,12 @@
 package com.foodcash.activity;
 
+import android.app.DatePickerDialog;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -19,10 +23,15 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class ReportIncomeActivity extends AppCompatActivity {
 
@@ -32,6 +41,10 @@ public class ReportIncomeActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private DatabaseReference ordersRef;
+    private TextView reportTitle;
+
+    private String filterType = "ALL"; // Default filter
+    private Calendar customDate = Calendar.getInstance(); // Untuk filter tanggal khusus
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,46 +63,94 @@ public class ReportIncomeActivity extends AppCompatActivity {
         reportIncomeAdapter = new ReportIncomeAdapter(reportItems);
         recyclerViewReportIncome.setAdapter(reportIncomeAdapter);
 
+        reportTitle = findViewById(R.id.reportTitle);
+
         // Tombol Kembali
         ImageButton btnBack = findViewById(R.id.btnBack);
         btnBack.setOnClickListener(v -> finish());
 
-        // Muat data pesanan dari Firebase
+        // Tombol filter
+        Button btnToday = findViewById(R.id.btnToday);
+        Button btnThisWeek = findViewById(R.id.btnThisWeek);
+        Button btnThisMonth = findViewById(R.id.btnThisMonth);
+        Button btnCustomDate = findViewById(R.id.btnCustomDate);
+        Button btnAllDay = findViewById(R.id.btnAllDay);
+
+        btnToday.setOnClickListener(v -> {
+            filterType = "TODAY";
+            reportTitle.setText("Laporan Pendapatan Hari Ini");
+            loadOrdersData();
+        });
+
+        btnThisWeek.setOnClickListener(v -> {
+            filterType = "WEEK";
+            reportTitle.setText("Laporan Pendapatan Minggu Ini");
+            loadOrdersData();
+        });
+
+        btnThisMonth.setOnClickListener(v -> {
+            filterType = "MONTH";
+            reportTitle.setText("Laporan Pendapatan Bulan Ini");
+            loadOrdersData();
+        });
+
+        btnCustomDate.setOnClickListener(v -> showDatePickerDialog());
+
+        btnAllDay.setOnClickListener(v -> {
+            filterType = "ALL";
+            reportTitle.setText("Laporan Pendapatan");
+            loadOrdersData();
+        });
+
+        // Muat data awal
         loadOrdersData();
     }
 
     private void loadOrdersData() {
-        ordersRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        ordersRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                reportItems.clear();
+
                 Map<String, Integer> monthlyTotals = new HashMap<>();
-                Map<String, DailyReport> dailyReports = new HashMap<>();
+                TreeMap<String, DailyReport> dailyReports = new TreeMap<>(Comparator.reverseOrder());
+
+                Calendar currentCalendar = Calendar.getInstance();
 
                 for (DataSnapshot orderSnapshot : snapshot.getChildren()) {
                     String orderDate = orderSnapshot.child("orderDate").getValue(String.class);
                     Integer totalPrice = orderSnapshot.child("totalPrice").getValue(Integer.class);
 
                     if (orderDate != null && totalPrice != null) {
-                        String monthKey = orderDate.substring(0, 7); // yyyy-MM
+                        Calendar orderCalendar = Calendar.getInstance();
+                        String[] dateParts = orderDate.split("-");
+                        int year = Integer.parseInt(dateParts[0]);
+                        int month = Integer.parseInt(dateParts[1]) - 1;
+                        int day = Integer.parseInt(dateParts[2]);
+                        orderCalendar.set(year, month, day);
 
-                        // Update total bulanan
-                        monthlyTotals.put(monthKey, monthlyTotals.getOrDefault(monthKey, 0) + totalPrice);
+                        if (shouldDisplayOrder(orderCalendar)) {
+                            String monthKey = orderDate.substring(0, 7); // yyyy-MM
 
-                        // Update laporan harian
-                        DailyReport dailyReport = dailyReports.getOrDefault(orderDate, new DailyReport(orderDate, 0, 0));
-                        dailyReport.incrementTotalPrice(totalPrice);
-                        dailyReport.incrementTotalCustomers();
-                        dailyReports.put(orderDate, dailyReport);
+                            // Update total bulanan
+                            monthlyTotals.put(monthKey, monthlyTotals.getOrDefault(monthKey, 0) + totalPrice);
+
+                            // Update laporan harian
+                            DailyReport dailyReport = dailyReports.getOrDefault(orderDate, new DailyReport(orderDate, 0, 0));
+                            dailyReport.incrementTotalPrice(totalPrice);
+                            dailyReport.incrementTotalCustomers();
+                            dailyReports.put(orderDate, dailyReport);
+                        }
                     }
                 }
 
-                // Set data untuk RecyclerView
+                // Tambahkan laporan bulanan dan harian ke daftar item
                 for (String month : monthlyTotals.keySet()) {
                     reportItems.add(new MonthlyReport(month, monthlyTotals.get(month)));
 
-                    for (DailyReport dailyReport : dailyReports.values()) {
-                        if (dailyReport.getDate().startsWith(month)) {
-                            reportItems.add(dailyReport);
+                    for (String dailyKey : dailyReports.keySet()) {
+                        if (dailyKey.startsWith(month)) {
+                            reportItems.add(dailyReports.get(dailyKey));
                         }
                     }
                 }
@@ -102,5 +163,59 @@ public class ReportIncomeActivity extends AppCompatActivity {
                 Toast.makeText(ReportIncomeActivity.this, "Gagal memuat data: " + error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private boolean shouldDisplayOrder(Calendar orderCalendar) {
+        Calendar currentCalendar = Calendar.getInstance();
+
+        switch (filterType) {
+            case "TODAY":
+                return isSameDay(orderCalendar, currentCalendar);
+            case "WEEK":
+                return isSameWeek(orderCalendar, currentCalendar);
+            case "MONTH":
+                return isSameMonth(orderCalendar, currentCalendar);
+            case "CUSTOM":
+                return isSameDay(orderCalendar, customDate);
+            case "ALL":
+            default:
+                return true;
+        }
+    }
+
+    private boolean isSameDay(Calendar calendar1, Calendar calendar2) {
+        return calendar1.get(Calendar.YEAR) == calendar2.get(Calendar.YEAR) &&
+                calendar1.get(Calendar.DAY_OF_YEAR) == calendar2.get(Calendar.DAY_OF_YEAR);
+    }
+
+    private boolean isSameWeek(Calendar calendar1, Calendar calendar2) {
+        calendar2.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);
+        return calendar1.get(Calendar.WEEK_OF_YEAR) == calendar2.get(Calendar.WEEK_OF_YEAR) &&
+                calendar1.get(Calendar.YEAR) == calendar2.get(Calendar.YEAR);
+    }
+
+    private boolean isSameMonth(Calendar calendar1, Calendar calendar2) {
+        return calendar1.get(Calendar.MONTH) == calendar2.get(Calendar.MONTH) &&
+                calendar1.get(Calendar.YEAR) == calendar2.get(Calendar.YEAR);
+    }
+
+    private void showDatePickerDialog() {
+        DatePickerDialog datePickerDialog = new DatePickerDialog(
+                this,
+                R.style.CustomDatePickerTheme, // Pastikan menggunakan tema khusus
+                (view, year, month, dayOfMonth) -> {
+                    customDate.set(year, month, dayOfMonth);
+                    filterType = "CUSTOM";
+                    String customDateString = new SimpleDateFormat("dd MMMM yyyy", new Locale("id", "ID"))
+                            .format(customDate.getTime());
+                    reportTitle.setText("Laporan Pendapatan\n" + customDateString);
+                    loadOrdersData();
+                },
+                customDate.get(Calendar.YEAR),
+                customDate.get(Calendar.MONTH),
+                customDate.get(Calendar.DAY_OF_MONTH)
+        );
+
+        datePickerDialog.show();
     }
 }

@@ -20,7 +20,9 @@
         android:layout_height="wrap_content"
         android:hint="Masukan data baru"
         android:padding="10dp"
-        android:background="@drawable/rounded_form" />
+        android:textCursorDrawable="@color/blue"
+        android:backgroundTint="@color/white"
+        style="@style/CustomEditText" />
 
     <LinearLayout
         android:layout_width="match_parent"

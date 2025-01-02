@@ -1,5 +1,7 @@
 package com.foodcash.activity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
@@ -51,7 +53,27 @@ public class OrderDetailActivity extends AppCompatActivity {
         cartPrice.setText(formatToRupiah(totalAmount));
 
         findViewById(R.id.btnBack).setOnClickListener(view -> finish());
-        btnLanjut.setOnClickListener(v -> saveOrderToFirebase());
+        btnLanjut.setOnClickListener(v -> showConfirmationDialog());
+    }
+
+    private void showConfirmationDialog() {
+        // Inflate the custom layout
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        final AlertDialog dialog = builder.create();
+        dialog.setView(getLayoutInflater().inflate(R.layout.dialog_confirmation, null));
+
+
+        // Atur background dari dialog
+        dialog.getWindow().setBackgroundDrawableResource(R.drawable.rounded_dialog);
+
+        dialog.show();
+
+        // Set up custom layout components
+        dialog.findViewById(R.id.btnCancel).setOnClickListener(v -> dialog.dismiss());
+        dialog.findViewById(R.id.btnConfirm).setOnClickListener(v -> {
+            dialog.dismiss();
+            saveOrderToFirebase();
+        });
     }
 
     private void saveOrderToFirebase() {

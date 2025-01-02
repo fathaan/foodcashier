@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/backgroundLight"
+    android:padding="16dp">
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/back"
+        android:src="@drawable/ic_back"
+        android:tint="@color/black" />
+
+    <!-- Tulisan Category di tengah bagian atas -->
+    <TextView
+        android:id="@+id/tvMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Grafik Penjualan"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/sf"
+        android:textColor="@color/black"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="16dp"
+        android:layout_gravity="center" />
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="8dp"
+        android:layout_gravity="center"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnToday"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:textSize="10sp"
+                android:background="@drawable/rounded_button"
+                android:layout_marginBottom="12dp"
+                android:layout_marginEnd="10dp"
+                android:textColor="@color/blue"
+                android:fontFamily="@font/sf"
+                android:text="Hari Ini"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btnThisWeek"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:textSize="10sp"
+                android:background="@drawable/rounded_button"
+                android:layout_marginBottom="12dp"
+                android:layout_marginEnd="10dp"
+                android:textColor="@color/blue"
+                android:fontFamily="@font/sf"
+                android:text="Minggu Ini"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btnThisMonth"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:textSize="10sp"
+                android:background="@drawable/rounded_button"
+                android:layout_marginBottom="12dp"
+                android:layout_marginEnd="10dp"
+                android:textColor="@color/blue"
+                android:fontFamily="@font/sf"
+                android:text="Bulan Ini"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btnCustomDate"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:textSize="10sp"
+                android:background="@drawable/rounded_button"
+                android:layout_marginBottom="12dp"
+                android:layout_marginEnd="10dp"
+                android:textColor="@color/blue"
+                android:fontFamily="@font/sf"
+                android:text="Pilih Tanggal"
+                android:textAllCaps="false" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- Tampilkan pesan "Tidak ada data" jika tidak ada data -->
+    <TextView
+        android:id="@+id/tvNoDataMessage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Tidak ada data untuk periode ini."
+        android:textColor="@color/red"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:visibility="gone" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/pieChart"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginTop="16dp"
+                android:padding="12dp"
+                android:background="@drawable/rounded_button">
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="*Pie Chart"
+                    android:gravity="right"
+                    android:paddingEnd="20dp"
+                    android:textColor="@color/blue"
+                    android:textStyle="italic"
+                    android:fontFamily="@font/sf"
+                    android:textSize="8sp" />
+
+            </com.github.mikephil.charting.charts.PieChart>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="14dp"
+                android:layout_marginBottom="14dp"
+                android:elevation="4dp"
+                android:background="@drawable/rounded_button">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="List Menu Terlaris"
+                    android:gravity="center"
+                    android:textColor="@color/blue"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/sf"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:id="@+id/tableMenuTerlaris"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="8dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

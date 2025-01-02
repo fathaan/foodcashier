@@ -6,41 +6,24 @@
     android:background="@color/backgroundLight"
     android:padding="18dp">
 
-    <!-- Back Button -->
-    <ImageButton
-        android:id="@+id/ic_back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/back"
-        android:src="@drawable/ic_back"
-        app:tint="@color/black"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+    <!-- Bottom Action Buttons -->
 
-    <!-- Order Receipt Card -->
     <LinearLayout
         android:id="@+id/cardReceipt"
         android:layout_width="330dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/rounded_background_white"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/rounded_button"
+        android:backgroundTint="@color/white"
         android:orientation="vertical"
         android:padding="28dp"
         app:cardBackgroundColor="@android:color/black"
-        app:cardElevation="4dp"
         app:cardCornerRadius="26dp"
-        app:layout_constraintBottom_toTopOf="@id/layoutBtnAction"
+        app:cardElevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ic_back">
-
-        <!-- Success Icon -->
-        <ImageView
-            android:id="@+id/ic_checklist"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_gravity="center"
-            android:src="@drawable/ic_checklist" />
+        app:layout_constraintTop_toTopOf="parent">
 
         <!-- Payment Success Text -->
         <TextView
@@ -49,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginBottom="20dp"
-            android:text="Payment Success!"
+            android:text="Struk Transaksi Digital\n"
             android:textColor="@color/black"
             android:textSize="18sp" />
 
@@ -124,7 +107,6 @@
 
     </LinearLayout>
 
-    <!-- Bottom Action Buttons -->
     <LinearLayout
         android:id="@+id/layoutBtnAction"
         android:layout_width="0dp"
@@ -140,12 +122,13 @@
             android:id="@+id/btnBackToHome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Back to Home"
-            android:background="@drawable/rounded_button"
-            android:textColor="@color/blue"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp" />
+            android:layout_marginBottom="14dp"
+            android:background="@drawable/rounded_button"
+            android:text="SELESAI"
+            android:textColor="@color/blue" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -156,10 +139,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:drawableStart="@drawable/ic_download"
-                android:drawableTint="@color/blue"
-                android:text="Get Struk PDF"
-                android:background="@drawable/rounded_button"
-                android:textColor="@color/blue"
+                android:drawableTint="@color/Sea"
+                android:text="Get Struk"
+                android:background="@drawable/rounded_button_sea"
+                android:textColor="@color/Sea"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp" />
@@ -170,10 +153,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:drawableStart="@drawable/ic_download"
-                android:drawableTint="@color/blue"
+                android:drawableTint="@color/Sea"
                 android:text="Get PDF"
-                android:background="@drawable/rounded_button"
-                android:textColor="@color/blue"
+                android:background="@drawable/rounded_button_sea"
+                android:textColor="@color/Sea"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp" />

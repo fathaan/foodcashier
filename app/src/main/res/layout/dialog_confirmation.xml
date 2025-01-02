@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/rounded_button"
+    android:backgroundTint="@color/backgroundLight">
+
+    <TextView
+        android:id="@+id/tvDialogTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Konfirmasi Pesanan"
+        android:fontFamily="@font/sf"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/danger"
+        android:layout_gravity="center_horizontal"
+        android:paddingBottom="8dp" />
+
+    <TextView
+        android:id="@+id/tvDialogMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cek kembali menu-menu yang dipilih, apakah Anda yakin sudah benar?"
+        android:textSize="14sp"
+        android:fontFamily="@font/sf"
+        android:textColor="@color/black"
+        android:layout_gravity="center_horizontal"
+        android:paddingBottom="16dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Tidak Yakin"
+            android:textAllCaps="false"
+            android:backgroundTint="@color/BackgroundRed"
+            android:background="@drawable/rounded_button"
+            android:textColor="@color/red"
+            android:layout_marginEnd="8dp" />
+
+        <Button
+            android:id="@+id/btnConfirm"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Yakin"
+            android:textAllCaps="false"
+            android:backgroundTint="@color/BackgroundGreen"
+            android:background="@drawable/rounded_button"
+            android:textColor="@color/green" />
+    </LinearLayout>
+</LinearLayout>

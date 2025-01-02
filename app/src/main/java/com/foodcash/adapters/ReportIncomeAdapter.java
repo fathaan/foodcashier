@@ -81,7 +81,7 @@ public class ReportIncomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                 Date date = inputFormat.parse(month);
 
                 // Menyusun format "MMMM yyyy" (e.g., "Bulan")
-                SimpleDateFormat outputFormat = new SimpleDateFormat("MMMM", new Locale("id", "ID"));
+                SimpleDateFormat outputFormat = new SimpleDateFormat("MMMM yyyy", new Locale("id", "ID"));
                 return outputFormat.format(date);
             } catch (ParseException e) {
                 e.printStackTrace();

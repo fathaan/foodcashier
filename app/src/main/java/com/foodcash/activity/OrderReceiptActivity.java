@@ -56,7 +56,6 @@ public class OrderReceiptActivity extends AppCompatActivity {
         btnGetStrukReceipt = findViewById(R.id.btnGetStrukReceipt);
         btnGetPDFReceipt = findViewById(R.id.btnGetPDFReceipt);
         btnBackToHome = findViewById(R.id.btnBackToHome);
-        ImageButton btnBack = findViewById(R.id.ic_back);
 
         recyclerViewReceiptDetails.setLayoutManager(new LinearLayoutManager(this));
 
@@ -65,7 +64,6 @@ public class OrderReceiptActivity extends AppCompatActivity {
         fetchOrderData(orderId);
 
         // Button logic
-        btnBack.setOnClickListener(view -> finish());
         btnGetPDFReceipt.setOnClickListener(v -> generatePDFReceipt());
         btnGetStrukReceipt.setOnClickListener(v -> {
             // Empty for now

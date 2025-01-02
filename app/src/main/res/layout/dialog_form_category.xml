@@ -3,7 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@drawable/rounded_button"
+    android:backgroundTint="@color/backgroundLight">
 
     <TextView
         android:id="@+id/dialogTitle"
@@ -25,7 +27,9 @@
         android:hint="Category Name"
         android:inputType="text"
         android:padding="10dp"
-        android:background="@drawable/rounded_form"
+        android:textCursorDrawable="@color/blue"
+        android:backgroundTint="@color/white"
+        style="@style/CustomEditText"
         android:layout_marginBottom="16dp" />
 
     <LinearLayout

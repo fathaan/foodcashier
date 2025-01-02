@@ -12,4 +12,11 @@
     <string name="category">Category</string>
     <string name="tambah_category">Tambah Category</string>
     <string name="tambah_menu">Tambah Menu</string>
+
+    <string-array name="filter_options">
+        <item>Hari Ini</item>
+        <item>Minggu Ini</item>
+        <item>Bulan Ini</item>
+        <item>Custom</item>
+    </string-array>
 </resources>

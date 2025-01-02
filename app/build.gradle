@@ -33,6 +33,7 @@ dependencies {
     implementation libs.firebase.auth // Firebase Authentication
     implementation libs.firebase.firestore // Firestore
     implementation libs.firebase.storage // Storage
+    implementation 'com.google.firebase:firebase-appcheck-playintegrity:18.0.0'
 
     // Dependensi dasar untuk aplikasi Android
     implementation libs.appcompat.v170
@@ -62,4 +63,6 @@ dependencies {
     testImplementation libs.junit // JUnit untuk pengujian unit
     androidTestImplementation libs.junit.v121 // JUnit ekstensi untuk pengujian Android
     androidTestImplementation libs.espresso.core.v361 // Espresso untuk UI testing
+
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 }
