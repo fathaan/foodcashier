@@ -78,19 +78,19 @@ public class ReportIncomeActivity extends AppCompatActivity {
 
         btnToday.setOnClickListener(v -> {
             filterType = "TODAY";
-            reportTitle.setText("Laporan Penjualan Hari Ini");
+            reportTitle.setText("Laporan Keuangan Hari Ini");
             loadOrdersData();
         });
 
         btnThisWeek.setOnClickListener(v -> {
             filterType = "WEEK";
-            reportTitle.setText("Laporan Penjualan Minggu Ini");
+            reportTitle.setText("Laporan Keuangan Minggu Ini");
             loadOrdersData();
         });
 
         btnThisMonth.setOnClickListener(v -> {
             filterType = "MONTH";
-            reportTitle.setText("Laporan Penjualan Bulan Ini");
+            reportTitle.setText("Laporan Keuangan Bulan Ini");
             loadOrdersData();
         });
 
@@ -98,7 +98,7 @@ public class ReportIncomeActivity extends AppCompatActivity {
 
         btnAllDay.setOnClickListener(v -> {
             filterType = "ALL";
-            reportTitle.setText("Laporan Penjualan");
+            reportTitle.setText("Laporan Keuangan");
             loadOrdersData();
         });
 
@@ -208,7 +208,7 @@ public class ReportIncomeActivity extends AppCompatActivity {
                     filterType = "CUSTOM";
                     String customDateString = new SimpleDateFormat("dd MMMM yyyy", new Locale("id", "ID"))
                             .format(customDate.getTime());
-                    reportTitle.setText("Laporan Pendapatan\n" + customDateString);
+                    reportTitle.setText("Laporan Keuangan\n" + customDateString);
                     loadOrdersData();
                 },
                 customDate.get(Calendar.YEAR),
