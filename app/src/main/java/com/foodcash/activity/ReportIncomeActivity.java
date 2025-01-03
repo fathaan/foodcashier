@@ -78,19 +78,19 @@ public class ReportIncomeActivity extends AppCompatActivity {
 
         btnToday.setOnClickListener(v -> {
             filterType = "TODAY";
-            reportTitle.setText("Laporan Pendapatan Hari Ini");
+            reportTitle.setText("Laporan Penjualan Hari Ini");
             loadOrdersData();
         });
 
         btnThisWeek.setOnClickListener(v -> {
             filterType = "WEEK";
-            reportTitle.setText("Laporan Pendapatan Minggu Ini");
+            reportTitle.setText("Laporan Penjualan Minggu Ini");
             loadOrdersData();
         });
 
         btnThisMonth.setOnClickListener(v -> {
             filterType = "MONTH";
-            reportTitle.setText("Laporan Pendapatan Bulan Ini");
+            reportTitle.setText("Laporan Penjualan Bulan Ini");
             loadOrdersData();
         });
 
@@ -98,7 +98,7 @@ public class ReportIncomeActivity extends AppCompatActivity {
 
         btnAllDay.setOnClickListener(v -> {
             filterType = "ALL";
-            reportTitle.setText("Laporan Pendapatan");
+            reportTitle.setText("Laporan Penjualan");
             loadOrdersData();
         });
 
